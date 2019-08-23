@@ -9,4 +9,8 @@ xc7z020clg400-3
 
 I don't know the difference between any of these three, but I made all of the labs with the first one.
 
+ARTY Z7 device:
+
+
+
 
