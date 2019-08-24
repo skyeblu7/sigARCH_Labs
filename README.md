@@ -81,7 +81,7 @@ and put them somewhere safe.
 # Running your first program on an FPGA  
   
 1.) download this file: https://github.com/skyeblu7/sigARCH_Labs/blob/master/setup_tools/LightTest.v and put it somewhere safe  
-2.) in Vivado, in "Project Manager", under "Sources", click the "+"  
+2.) in Vivado, in "Project Manager", in the "Sources" window, click the "+"  
 3.) Select "Add or create design sources" then click "next"  
 4.) Select "Add Files" then locate the file you just downloaded and add it then click "finish"  
 5.) -------Edit constraints for your particular board----------------  
