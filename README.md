@@ -84,14 +84,31 @@ and put them somewhere safe.
 2.) in Vivado, in "Project Manager", in the "Sources" window, click the "+"  
 3.) Select "Add or create design sources" then click "next"  
 4.) Select "Add Files" then locate the file you just downloaded and add it then click "finish"  
-5.) -------Edit constraints for your particular board----------------  
-6.) -------change names in LightTest.v accordingly-------------------  
-7.) -------connect FPGA to Vivado------------------------------------  
-8.) -------synthesize, implement, bitstream, program device----------  
-9.) -------Look at the amazing blinking light------------------------  
-10.) ------Praise your overlord for making this guide----------------  
-11.) ------You didn't praise hard enough-----------------------------  
-12.) ------That's right, you thought I wouldn't notice, well I did---  
-13.) ------And now you will face the consequeces---------------------
-    
+5.) In the "Project Manager" in the "Sources" window, expand the "Constrants" folder until you see a ".xdc" file, double click it.  
+6.) uncomment out lines 8, 9 and 27  
   
+    - if you are using Arty Zynq-z2, it will look like this:   
+  
+    "set_property -dict { PACKAGE_PIN H16    IOSTANDARD LVCMOS33 } [get_ports { clk }]; #IO_L13P_T2_MRCC_35 Sch=SYSCLK" (8)  
+    "create_clock -add -name sys_clk_pin -period 8.00 -waveform {0 4} [get_ports { clk }];#set"                         (9)   
+    "set_property -dict { PACKAGE_PIN R14    IOSTANDARD LVCMOS33 } [get_ports { led0 }]; #IO_L6N_T0_VREF_34 Sch=LED0"   (27)  
+  
+    - if you are using pynq-z2, it will look like this:  
+  
+    "set_property -dict { PACKAGE_PIN H16   IOSTANDARD LVCMOS33 } [get_ports { clk }]; #IO_L13P_T2_MRCC_35 Sch=sysclk"    (8)  
+    "create_clock -add -name sys_clk_pin -period 8.00 -waveform {0 4} [get_ports { clk }];"                               (9)  
+    "set_property -dict { PACKAGE_PIN R14   IOSTANDARD LVCMOS33 } [get_ports { led0 }]; #IO_L6N_T0_VREF_34 Sch=led[0]"    (27)  
+
+7.) In Vivado, in the "Project Manager", in the "Sources" window, expand the "Design Sources" folder until you see "main", double click "main"    
+8.) plug in the FPGA into your computer using the USB cable.  
+9.) In Vivado, on the left side, go all the way to the bottom of the "Flow Navigator" and click on "Open Hardware Manager"  
+10.) At the top of the Hardware Manager window click on "Open target" then "Auto Connect"    
+11.) After it finishes, on the left side, under "Flow Navigator", under "Synthesis", click on the green triangle  
+12.) Under "Synthesis", under "Implementaion" click the green arrow  
+13.) Once those finish click "Generate Bitstream"  
+14.) On the left side under "Flow Navigator" all the way at the bottom under "Open Hardware Manager", click "Program Device", and select the option it gives you  
+15.) A pop-up shows up, click "Program". If LD0 is flashing, it means the program is working    
+16.) Praise your overlord for making this guide, I accept bitcoin: 1AUPBqqqQj282BQsCxr8jUAaUovDP1R9xu  
+  
+     
+   
