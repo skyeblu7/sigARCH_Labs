@@ -109,6 +109,16 @@ and put them somewhere safe.
 14.) On the left side under "Flow Navigator" all the way at the bottom under "Open Hardware Manager", click "Program Device", and select the option it gives you  
 15.) A pop-up shows up, click "Program". If LD0 is flashing, it means the program is working    
 16.) Praise your overlord for making this guide, I accept bitcoin: 1AUPBqqqQj282BQsCxr8jUAaUovDP1R9xu  
+    
+  # Using Visual Studio as your text editor  
   
-     
+1.) Open Vivado  
+2.) On the toolbar at the top, click on "Tools" and then "Settings"  
+3.) On the pop-up menu, click on "Text Editor" then the box with the three dots in it  
+4.) In the textbox that shows up, you will need to paste in the path to visual studio's launcher and some extra stuff    
+  
+something like this:  
+- C:/Users/[username]/AppData/Local/Programs/Microsoft VS Code/code.exe -g [file name]:[line number]  
+  
+5.) then click "OK", "Apply", "OK"  
    
