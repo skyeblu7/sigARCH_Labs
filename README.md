@@ -80,7 +80,11 @@ and put them somewhere.
   
 # Running your first program on an FPGA  
   
-  
+1.) download this file: https://github.com/skyeblu7/sigARCH_Labs/blob/master/setup_tools/LightTest.v and put it somewhere  
+2.) in Vivado, in "Project Manager", under "Sources", click the "+"  
+3.) Select "Add or create design sources" then click "next"  
+4.) Select "Add Files" then locate the file you just downloaded and add it then click "finish"  
+5.) 
   
   
   
