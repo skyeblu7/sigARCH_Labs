@@ -1,8 +1,8 @@
-#####################################################################################################################################  
-#####################################################################################################################################  
-############################################################### SETUP ###############################################################  
-#####################################################################################################################################  
-#####################################################################################################################################  
+###########################################################################################################################  
+###########################################################################################################################  
+########################################################## SETUP ##########################################################  
+###########################################################################################################################  
+###########################################################################################################################  
 
 # Install Vivado:  
 https://www.xilinx.com/support/download.html  
@@ -26,10 +26,16 @@ Or type in whatever you want, idc.
 2.) login with the account you just made and click "next"  
 3.) Check "I Agree" to all options, it won't let you continue until you do, then click "next"  
 4.) Select the "Vivado HL WebPACK" then click "next"  
-5.) Under "Design Tool" UNCHECK "DocNav" unless you want it.   
-    Under "Devices" UNCHECK "7 Series", "UltraScale", and "UltraScale+" unless you want them (they just allow you to use different types of boards. We don't have any of these types so we don't need them.)  
-    Under "Installation Options" UNCHECK "Enable WebTalk for SDK to send usage statistics to Xilinx" unless you want it.  
-    then click "next"  
+5.)   
+  
+- Under "Design Tool" UNCHECK "DocNav" unless you want it.   
+  
+- Under "Devices" UNCHECK "7 Series", "UltraScale", and "UltraScale+" unless you want them (they just allow you to use different types of boards. We don't have any of these types so we don't need them.)  
+      
+- Under "Installation Options" UNCHECK "Enable WebTalk for SDK to send usage statistics to Xilinx" unless you want it.  
+      
+- then click "next"  
+  
 6.) specify where you'd like to download Vivado, I'd just leave it in the default area so it's easy to find. Click "next"  
 7.) I think the download and installation starts now, it'll take about an hour  
   
