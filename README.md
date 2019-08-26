@@ -71,7 +71,7 @@ Search and select the device you are using and then click "next"
 Arty zynq-z2: https://github.com/skyeblu7/sigARCH_Labs/blob/master/setup_tools/arty_zynq_constraints.xdc  
 Pynq-z2: https://github.com/skyeblu7/sigARCH_Labs/blob/master/setup_tools/pynq-z2_constraints.xdc  
 
-and put them somewhere safe.
+and put them somewhere safe.  
 8.) In Vivado, in the main window, make sure you are under "Project Manager". If you are not, then on the left side under "Flow Navigator", select "Project Manager".  
 9.) In the window labeled "Sources", click the "+" symbol. A pop-up should appear.  
 10.) select "Add or create constraints" and click "next"  
