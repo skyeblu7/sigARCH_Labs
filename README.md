@@ -100,15 +100,16 @@ and put it somewhere safe.
     "set_property -dict { PACKAGE_PIN R14   IOSTANDARD LVCMOS33 } [get_ports { led0 }]; #IO_L6N_T0_VREF_34 Sch=led[0]"    (27)  
 
 7.) In Vivado, in the "Project Manager", in the "Sources" window, expand the "Design Sources" folder until you see "main", double click "main"    
-8.) plug in the FPGA into your computer using the USB cable.  
+8.) plug in the FPGA into your computer using the USB cable. If you are using the pynq, make sure the power switch is on.   
 9.) In Vivado, on the left side, go all the way to the bottom of the "Flow Navigator" and click on "Open Hardware Manager"  
 10.) At the top of the Hardware Manager window click on "Open target" then "Auto Connect"    
 11.) After it finishes, on the left side, under "Flow Navigator", under "Synthesis", click on the green triangle  
 12.) Under "Synthesis", under "Implementaion" click the green arrow  
 13.) Once those finish click "Generate Bitstream"  
 14.) On the left side under "Flow Navigator" all the way at the bottom under "Open Hardware Manager", click "Program Device", and select the option it gives you  
-15.) A pop-up shows up, click "Program". If LD0 is flashing, it means the program is working    
-16.) Praise your overlord for making this guide, I accept bitcoin: 1AUPBqqqQj282BQsCxr8jUAaUovDP1R9xu  
+15.) A pop-up shows up, if there isn't a file in the box labeled "Bitstream file" click on the box with 3 dots then locate and double click the ".bit" file in the directory. 
+16.) Click "Program". If LD0 is flashing, it means the program is working    
+17.) Praise your overlord for making this guide, I accept bitcoin: 1AUPBqqqQj282BQsCxr8jUAaUovDP1R9xu  
     
   # Using Visual Studio Code as your text editor  
   
