@@ -83,6 +83,8 @@ A*B*Cin, where * is used to denote an AND gate. Since the Cout is true for any o
 Cout = A*B + B*Cin + A*Cin + A*B*Cin where + is used to denote an OR gate. This technique can be used to find the gates
 needed to represent any boolean operation. However, we notice that including A*B*Cin is redundant because in that case
 all the other gates will be high and thus the function will be high. To remove redundancies in our logic circuits, we 
-use K-Maps, or karnough maps.
+use K-Maps, or karnaugh maps.
 
+here is a good resource for karnaugh maps: https://www.geeksforgeeks.org/k-mapkarnaugh-map/
 
+I suggest after reading it to complete a karnaugh map of the full adder above to find the circuit without redundancies.
