@@ -1,0 +1,88 @@
+Here are some tips and strategies when buiding logic circuits using logic gates. I will first show you small
+circuits using the basic logic gates, then use some of these ciruits to build more complicated ones.
+
+High means logic 1
+Low means logic 0
+
+First we shall build a one bit half adder:
+
+We have two inputs A and B which are one bit boolean numbers. To build an adder we first look at what the sum
+should look like. We go over all the possible somes and look for a pattern:
+
+A B | S
+--------
+0 0 | 0
+0 1 | 1
+1 0 | 1
+1 1 | 0
+
+We notice that the sum is the same as the logical XOR gate. So to calculate the correct sum, we can just connect
+A and B to an XOR gate.
+
+A ----v
+      XOR --> S
+B ----^
+
+Next we want to calculate the carry that is generated. We approach this the same way, look for a pattern:
+
+A B | C
+--------
+0 0 | 0
+0 1 | 0
+1 0 | 0
+1 1 | 1
+
+We see that for adding A and B, the carry is the same as an AND gate, so we can just connect A and B to an AND gate.
+
+A ----v
+      AND ----> C
+B ----^
+
+And that completes our half adder. 
+
+But what if we want to account for the carry? Then we will look at all possible additions of A+B+C, and again, look
+for a pattern:
+
+A B C | S
+----------
+0 0 0 | 0
+0 0 1 | 1
+0 1 0 | 1
+0 1 1 | 0
+1 0 0 | 1
+1 0 1 | 0
+1 1 0 | 0
+1 1 1 | 1
+
+We notice again the pattern. Anytime there is an odd number of 1's, we have 1 for the sum, otherwise the sum is 0. 
+This again follows the pattern for XOR gates, for which the general rule (for all possible input sizes) is if there
+is an odd number of high inputs going into the XOR gate, then the output is high, otherwise it's low. so we get:
+
+A -------|
+         V
+B --->  XOR ---> S
+         ^
+C--------|
+
+Now to find out how to get the carry, we again look for a pattern:
+
+A B Cin | Cout
+0 0 0   | 0
+0 0 1   | 0
+0 1 0   | 0
+0 1 1   | 1
+1 0 0   | 0
+1 0 1   | 1
+1 1 0   | 1
+1 1 1   | 1
+
+we find that whenever there is two or more of the operands high, then there is a carry out. There is no single logic
+gate that has this property where it is high when two or more of it's inputs are high. So we must use another strategy.
+We start by writing Cout as a boolean function and observe the conditions that make it true. Namely A*B, B*Cin, A*Cin, 
+A*B*Cin, where * is used to denote an AND gate. Since the Cout is true for any of these conditions, we may simply write
+Cout = A*B + B*Cin + A*Cin + A*B*Cin where + is used to denote an OR gate. This technique can be used to find the gates
+needed to represent any boolean operation. However, we notice that including A*B*Cin is redundant because in that case
+all the other gates will be high and thus the function will be high. To remove redundancies in our logic circuits, we 
+use K-Maps, or karnough maps.
+
+
