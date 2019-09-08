@@ -120,4 +120,5 @@ the Moore state machine and the Mealy state machine.
 The Moore state machine says that the outputs of a system is only determined by it's current state.
 The Mealy state machine says its ouputs are dependent on it's current state and current inputs.
 
-
+The Von Neumann Model is a description of a computer with 5 components: a processing unit, a control
+unit, memory, external mass storage, and input/output mechanisms
