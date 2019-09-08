@@ -1,0 +1,123 @@
+
+Boolean Algebra notation:
+'+' means OR gate
+'*' means AND gate
+''' means NOT gate
+
+example:
+
+A*B+'(C+'D) is the same as:
+
+(A AND B) OR (NOT(C OR NOT D))
+Java: (A && B) || !(C || !D)
+
+
+Canonical Form is when you take a truth table of a function and use it's outputs to 
+form an equation for the table. The form of this equation can either use the 1's in
+the truth table or the 0's. If you use the 1's, you would write out the SOP (sum of
+products) form of the formula. If you use the 0's, you would write out the POS 
+(product of sums) form of the formula. It's usually best to use whichever has fewer,
+SOP if there are fewer 1's in the output, POS if there are fewer 0's in the output.
+However, POS gives you the inverted boolean equation.
+
+example:
+
+A B C D | E
+-----------
+0 0 0 0 | 1
+0 0 0 1 | 1
+0 0 1 0 | 1
+0 0 1 1 | 1
+0 1 0 0 | 1
+0 1 0 1 | 1
+0 1 1 0 | 0
+0 1 1 1 | 0
+1 0 0 0 | 1
+1 0 0 1 | 0
+1 0 1 0 | 1
+1 0 1 1 | 1
+1 1 0 0 | 0
+1 1 0 1 | 1
+1 1 1 0 | 1
+1 1 1 1 | 1
+
+SOP:  E = 'A*'B*'C*'D + 'A*'B*'C*D + 'A*'B*C*D + 'A*'B*C*D + 'A*B*'C*'D + 'A*B*'C*D + A*'B*'C*'D + A*'B*C*'D + A*'B*C*D + A*B*'C*D + A*B*C*'D + A*B*C*D
+POS:  E = ('A+B+C+'D)*('A+B+C+D)*(A+'B+'C+D)*(A+B+'C+'D)
+
+
+A lot of the time these equations give you redundant terms. To remove redundancies
+we use a K-map. 
+      
+      
+     AB|00   01   11   10 
+  CD  ---------------------
+  00  | 1  | 1  | 0  | 1  |
+      ---------------------
+  01  | 1  | 1  | 1  | 0  |             
+      ---------------------
+  11  | 1  | 0  | 1  | 1  |
+      ---------------------
+  10  | 1  | 0  | 1  | 1  | 
+      ---------------------
+
+You can see in this K-Map that we labeled the top row as all the possible combinations 
+of A and B, and the left column labaled as all the possible outputs of C. Then in the
+map, we put a 1 for each cell that corresponds to a 1 in the table, and a 0 otherwise.
+Notice again on the top row the order we went in labeling each column. You must use
+this order when using two bits. Notice specifically the "11" bits are before the "10"
+bits. This is called a "grey code", which is when only one of the bits changes at a time. 
+It allows for some nice properties which will help us reduce our boolean functions. 
+Now that we have our K-map, we can start circling terms. You are allowed to circle any 
+set of bits in a 2^x by 2^y rectangle on the k-map where x,y >= 0 and you're allowed 
+to circle terms that wrap around the k-map. Our goal now is to circle the largest rectangles
+possible under these rules to cover all the 1's. So for example, in the top left there is a 
+2x2 square we can circle. The left most column is a 1x4 rectangle we can circle. the
+bottom left is a 2x2 square we can circle. The 4 corners is a 2x2 square we can circle.
+and finally there is a 1x2 rectangle we can circle in the AB 11 column or CD 01 row. 
+Doesn't matter which one you choose. So we have a map that looks like figure_1 (it's in
+the meeting_1 folder on github). We then use these circles and look at which bits stay
+the same in each circle. For example, the top left 2x2 square 'A and 'C stay the same,
+so our term for that is 'A*'C. For the 1x2 rectangle term in the middle, we see that
+D and AB are constant, so our term is A*B*D. If you do this with all the circled rectangles
+you get the simplified SOP term for E.
+
+E = 'A*'C + 'A*'B + A*C + 'B*'D + A*B*D
+
+as you can see it's only 5 terms instead of the 12 terms we got in it's canonical form.
+We can also find the POS to find E by circling the 0's instead of the 1's. Your result
+for this is shown in Figure_2. With a similar prodecure as described above except we will
+put down the inverted letter each bit that stays the same, and these will be OR'd together
+instead of AND'd like above. for example, the 1x2 rectangle has C, 'A, B that stay the same,
+so this term will be ('C + A + 'B). Which will be AND'd with the next terms. Below is the
+full equation.      
+
+E = ('C+A+'B)*('A+'B+C+D)*('A+B+C+'D)
+
+notice that this equation also lost a redundant term.
+
+Sometimes when you are making a function, you don't care what a certain output will look like.
+In these cases you can put in an 'x' for that cell in the karnough map. These x's can be treated
+as a 1 or a 0 when you are circling rectangles. Often this can help simplify your equations.
+
+
+A clock is a consistent square wave signal that is often used to synchronize large circuits.
+
+A latch is a logic circuit in which a given bit can be stored for later use. It is used to make
+flip-flops which are circits used to store a bit for one input signal cycle (the rising edge 
+ususally, but also sometimes made to change on the falling edge). Flip-flops can be put together 
+to store an arbitrary bit-length.
+
+Mux's (short for multiplexor) are ciruit elements that allow us to choose an input from a selection
+of inputs as the output.
+
+A decoder is a logic circuit that takes in x inputs and chooses 1 of 2^x outputs from it. (very 
+similar to a multiplexor except instead of givin only 1 ouput wire, we have 2^x output wires).
+
+A state machine is an abstraction of a problem that describes the problem in terms of a finite
+number of states change based on some external inputs. There are two types of state machines:
+the Moore state machine and the Mealy state machine.
+
+The Moore state machine says that the outputs of a system is only determined by it's current state.
+The Mealy state machine says its ouputs are dependent on it's current state and current inputs.
+
+
