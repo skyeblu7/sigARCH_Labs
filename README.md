@@ -50,18 +50,12 @@ Launch Vivado, it might take some time on the first startup
 5.) Now it will ask you what board you are using, here are your choices depending on which FPGA you are using:  
   
 PYNQ device:   
-  
 xc7z020clg400-1  
-xc7z020clg400-2  
-xc7z020clg400-3  
   
 ARTY Z7 device:  
-  
 xc7z020clg400-1  
-xc7z020clg400-2  
-xc7z020clg400-3  
   
-I always use the device labed with '1' at the end. The others may or may not work.  
+(they are the same)
   
 Search and select the device you are using and then click "next"  
   
@@ -71,7 +65,7 @@ Search and select the device you are using and then click "next"
 Arty zynq-z2: https://github.com/skyeblu7/sigARCH_Labs/blob/master/setup_tools/arty_zynq_constraints.xdc  
 Pynq-z2: https://github.com/skyeblu7/sigARCH_Labs/blob/master/setup_tools/pynq-z2_constraints.xdc  
 
-and put it somewhere safe.  
+and put it somewhere safe. This file allows you to interact with components on the board. 
 8.) In Vivado, in the main window, make sure you are under "Project Manager". If you are not, then on the left side under "Flow Navigator", select "Project Manager".  
 9.) In the window labeled "Sources", click the "+" symbol. A pop-up should appear.  
 10.) select "Add or create constraints" and click "next"  
